@@ -43,6 +43,7 @@ class WptechPageRedirectonHitCounter
 	{
 		wp_enqueue_style( 'wptech_custom_tabs_style', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/css/wptech_custom_tabs_style.css' );
 		wp_enqueue_script( 'wptech_custom_tabs_script', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/js/wptech_custom_tabs_script.js' );
+		wp_enqueue_script( 'wptech_custom_admin_tabs_script.js', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/js/wptech_custom_admin_tabs_script.js' );
 	
 	}
 	public function wptech_admin_settings()

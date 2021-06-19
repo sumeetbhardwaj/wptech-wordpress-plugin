@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h1>Page Redirection & Hit Counter Setting</h1>
+	<h1>Page Redirection & Hit Counter Setting</h1><hr>
 	<?php settings_errors(); ?>
 
 	<ul class="nav nav-tabs">
@@ -9,73 +9,12 @@
 	</ul>
 
 	<div class="tab-content">
-		<div id="tab-1" class="tab-pane active">
+		<?php
+			require_once'admintab/page_redirection_tab.php';
+			require_once'admintab/page_hit_counter_tab.php';
+		?>
 
-			<form method="post" action="options.php">
-				<?php 
-					settings_fields( 'wptech_page_plugin_settings' );
-					do_settings_sections( 'wptech_page_plugin' ); ?>
-					<div class="tab-1-main">
-						<div class="inner-main-1">
-							All Redirection Page Off :
-						</div>
-						<div class="inner-main-2">
-							<label class="switch">
-							  <input type="checkbox">
-							  <span class="slider round"></span>
-							</label>
-						</div>
-					</div>
-					<div class="tab-1-main">
-						<div class="inner-main-1">
-						Show Url Input In pages :
-						</div>
-						<div class="inner-main-2">
-							<label class="switch">
-							  <input type="checkbox">
-							  <span class="slider round"></span>
-							</label>
-						</div>
-					</div>
-					<?php
-					submit_button();
-				?>
-			</form>
-			
-		</div>
-
-		<div id="tab-2" class="tab-pane">
-			<form method="post" action="options.php">
-				<?php 
-					settings_fields( 'wptech_page_plugin_settings' );
-					do_settings_sections( 'wptech_page_plugin' ); ?>
-					<div class="tab-1-main">
-						<div class="inner-main-1">
-							Page Hit Counter Off :
-						</div>
-						<div class="inner-main-2">
-							<label class="switch">
-							  <input type="checkbox">
-							  <span class="slider round"></span>
-							</label>
-						</div>
-					</div>
-					<!--<div class="tab-1-main">
-						<div class="inner-main-1">
-						Show Url Input In pages :
-						</div>
-						<div class="inner-main-2">
-							<label class="switch">
-							  <input type="checkbox">
-							  <span class="slider round"></span>
-							</label>
-						</div>
-					</div> -->
-					<?php
-					submit_button();
-				?>
-			</form>
-		</div>
+		
 
 		<div id="tab-3" class="tab-pane">
 			<h3>Thank You For Useing This Plugin !</h3>
