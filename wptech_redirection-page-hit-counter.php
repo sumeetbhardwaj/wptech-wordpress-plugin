@@ -38,7 +38,13 @@ define('WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL', plugin_dir_url( __FILE_
 define('WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_PATH', plugin_dir_path( __FILE__ ));
 
 class WptechPageRedirectonHitCounter
-{
+{	
+	public function wptech_enqueue_admin_script()
+	{
+		wp_enqueue_style( 'wptech_custom_tabs_style', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/css/wptech_custom_tabs_style.css' );
+		wp_enqueue_script( 'wptech_custom_tabs_script', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/js/wptech_custom_tabs_script.js' );
+	
+	}
 	public function wptech_admin_settings()
 	{ 
 		require_once WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_PATH.'/class/WptechAdminSetting.php';
@@ -58,6 +64,7 @@ if( class_exists( 'WptechPageRedirectonHitCounter' ))
 	$wptechpageredirectonhitcounter = new WptechPageRedirectonHitCounter();
 	
 	// admin settings page action hook
+	add_action( 'admin_enqueue_scripts', array( $wptechpageredirectonhitcounter, 'wptech_enqueue_admin_script' ));
 	add_action( 'admin_menu', array( $wptechpageredirectonhitcounter, 'wptech_admin_settings' ));
 	add_action('add_meta_boxes', array( $wptechpageredirectonhitcounter, 'wptech_admin_settings' ) );
 	add_action( 'template_redirect', array( $wptechpageredirectonhitcounter, 'wptech_current_page_redirection' ));

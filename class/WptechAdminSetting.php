@@ -10,20 +10,12 @@
 		
 	}
 	function wptech_page_redirection_and_hit_counter_admin_menu() {
-    add_menu_page( 'Redirection Hit Counter Setting', 'Redirection Hit Counter Setting', 'manage_options','wptech-page-redirection-hit-counter-setting-page', array( $this, 'wptech_page_redirection_and_hit_counter_setting'), 'dashicons-share', 40 );
+    add_menu_page( 'Page Redirection & Hit Counter Setting', 'Page Redirection & Hit Counter Setting', 'manage_options','wptech-page-redirection-hit-counter-setting-page', array( $this, 'wptech_page_redirection_and_hit_counter_setting'), 'dashicons-share', 40 );
 	
 	}
 	
 	public function wptech_page_redirection_and_hit_counter_setting()
-	{ ?>
-		<h1> Thank You For Useing This Plugin !</h1><br><br>
-		<p>Hey Guys<br><br>
-		I want to give a best plugin for page redirection and current page hit counter.<br>
-		But now page redirection functionality is working properly.<br><br>
-			Thank's & Regard's<br>
-				WpTech 
-		</p>
-	<?php }
+	{ require_once WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_PATH.'/templates/admin.php'; }
 	// matabox for page redirection url
 	function wptech_redirecttion_page_custom_field_add() {
 		$screens = get_post_types();
