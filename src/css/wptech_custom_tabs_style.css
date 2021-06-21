@@ -224,12 +224,19 @@ input:checked + .slider:before {
     text-align: justify;
 	margin-bottom:20px;
 }
-.tab-1-main>.inner-main-1, .row>.inner-main-1{
+.tab-1-main>.inner-main-1{
 	font-size: 15px;
     margin-right: 50px;
     padding-top: 2px;
     font-weight: 500;
 	width:30%;
+}
+.row>.inner-main-1{
+	font-size: 15px;
+    margin-right: 50px;
+    padding-top: 2px;
+    font-weight: 500;
+	width:40%;
 }
 
 /* Style inputs, select elements and textareas */

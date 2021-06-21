@@ -27,7 +27,7 @@
 						</label>
 					</div>
 				</div>
-								<div class="tab-1-main">
+				<div class="tab-1-main">
 					<div class="inner-main-1">
 					Hit Counter On/Off :
 					</div>
