@@ -13,7 +13,12 @@
     add_menu_page( 'Redirection Hit Counter Setting', 'Redirection Hit Counter Setting', 'manage_options','wptech-page-redirection-hit-counter-setting-page', array( $this, 'wptech_page_redirection_and_hit_counter_setting'), 'dashicons-share', 40 );
 	
 	}
-	
+	public function wptech_page_redirection_and_hit_counter_option_setting()
+	{
+		register_setting( 'wptech_page_plugin_settings_group', // page or option group
+						'wptech_page_plugin_settings_option' // ption name 
+						);
+	}
 	public function wptech_page_redirection_and_hit_counter_setting()
 	{ 
 		require_once WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_PATH.'/templates/admin.php';
@@ -50,6 +55,7 @@ $adminSetting = new WptechAdminSetting();
 $adminSetting->wptech_page_redirection_and_hit_counter_admin_menu();
 $adminSetting->wptech_redirecttion_page_custom_field_add();
 add_action('save_post', array( $adminSetting, 'wptech_redirection_page_custom_field_data_save') );
+add_action( 'admin_init', array( $adminSetting, 'wptech_page_redirection_and_hit_counter_option_setting' ) );
 
 
 

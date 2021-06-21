@@ -74,7 +74,7 @@ if( class_exists( 'WptechPageRedirectonHitCounter' ))
 	add_action( 'admin_menu', array( $wptechpageredirectonhitcounter, 'wptech_admin_settings' ));
 	add_action('add_meta_boxes', array( $wptechpageredirectonhitcounter, 'wptech_admin_settings' ) );
 	add_action( 'template_redirect', array( $wptechpageredirectonhitcounter, 'wptech_current_page_redirection' ));
-
+	add_filter( "plugin_action_links_$plugin", array( $wptechpageredirectonhitcounter,'wptech_plugin_add_settings_link') );
 }
 
-add_filter( "plugin_action_links_$plugin", array( $wptechpageredirectonhitcounter,'wptech_plugin_add_settings_link') );
+
