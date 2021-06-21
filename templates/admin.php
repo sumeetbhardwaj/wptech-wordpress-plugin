@@ -17,13 +17,15 @@
 			require_once'admintab/page_hit_counter_tab.php';
 		?>
 		<div id="tab-4" class="tab-pane">
-			<h3>Thank You For Useing This Plugin !</h3>
+			<div class="container">
+				<h3>Thank You For Useing This Plugin !</h3>
 		<p>Hey Guys<br><br>
 		I want to give a best plugin for page redirection and current page hit counter.<br>
 		But now page redirection functionality is working properly.<br><br>
 			Thank's & Regard's<br>
 				WpTech 
 		</p>
+			</div>
 		</div>
 	</div>
 </div>

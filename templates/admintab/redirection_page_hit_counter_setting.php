@@ -7,7 +7,7 @@
 				do_settings_sections( 'wptech_page_plugin' ); ?>
 				<div class="tab-1-main">
 					<div class="inner-main-1" >
-						All Redirection Page Off :
+						All Redirection Page On/Off :
 					</div>
 					<div class="inner-main-2">
 						<label class="switch">
@@ -18,7 +18,18 @@
 				</div>
 				<div class="tab-1-main">
 					<div class="inner-main-1">
-					Show Url Input In pages :
+					Show Url Input Field In Every Page :
+					</div>
+					<div class="inner-main-2">
+						<label class="switch">
+						  <input type="checkbox">
+						  <span class="slider round"></span>
+						</label>
+					</div>
+				</div>
+								<div class="tab-1-main">
+					<div class="inner-main-1">
+					Hit Counter On/Off :
 					</div>
 					<div class="inner-main-2">
 						<label class="switch">

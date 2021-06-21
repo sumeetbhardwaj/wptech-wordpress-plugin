@@ -229,6 +229,7 @@ input:checked + .slider:before {
     margin-right: 50px;
     padding-top: 2px;
     font-weight: 500;
+	width:30%;
 }
 
 /* Style inputs, select elements and textareas */
