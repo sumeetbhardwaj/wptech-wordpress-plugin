@@ -1,63 +1,55 @@
-<div id="tab-1" class="tab-pane active">
-	<ul class="tab">
-	  <li class="innerli"><a href="javascript:void(0)" class="tablinks active" onclick="openCity(event, 'redirectPage')">Redirection Page Setting</a></li>
-	  <li class="innerli"><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'redirectPabeTable')">Redirection Page Details</a></li>
-	</ul>
-
-	<div id="redirectPage" class="tabcontent" style="display: block;">
-	<h1 style="margin-bottom:20px;">Redirection Page Setting</h1>
+<div id="tab-2" class="tab-pane">
+	<div class="container">
+		<h1 style="margin-bottom:20px;">Redirection Manager</h1>
 	  <form method="post" action="options.php">
-				<?php 
-					settings_fields( 'wptech_page_plugin_settings' );
-					do_settings_sections( 'wptech_page_plugin' ); ?>
-					<div class="tab-1-main">
-						<div class="inner-main-1">
-							All Redirection Page Off :
-						</div>
-						<div class="inner-main-2">
-							<label class="switch">
-							  <input type="checkbox">
-							  <span class="slider round"></span>
-							</label>
+				<div class="tab-1-main" style="margin-bottom:0;">
+					<div class="inner-main-1" style="width:40%;">
+						<div class="row">
+						  <div class="inner-main-1" >
+							Redirection Url From :
+						 </div>
+						  <div class="col-75">
+							<input type="text" id="fname" name="firstname" placeholder="https//www.example.com">
+						  </div>
 						</div>
 					</div>
-					<div class="tab-1-main">
-						<div class="inner-main-1">
-						Show Url Input In pages :
-						</div>
-						<div class="inner-main-2">
-							<label class="switch">
-							  <input type="checkbox">
-							  <span class="slider round"></span>
-							</label>
+					<div class="inner-main-2" style="width:40%;">
+						<div class="row">
+						  <div class="inner-main-1">
+							Redirection Url To :
+							</div>
+						  <div class="col-75">
+							<input type="text" id="lname" name="lastname" placeholder="https//www.abc.com">
+						  </div>
 						</div>
 					</div>
-					
-					
-					<div class="row">
-					  <div class="inner-main-1">
-						Redirection Url From :
-					 </div>
-					  <div class="col-75">
-						<input type="text" id="fname" name="firstname" placeholder="https//www.example.com">
-					  </div>
-					</div>
-					<div class="row">
-					  <div class="inner-main-1">
-						Redirection Url To :
-						</div>
-					  <div class="col-75">
-						<input type="text" id="lname" name="lastname" placeholder="https//www.abc.com">
-					  </div>
-					</div>
-					<?php
-					submit_button();
-				?>
+				</div>
+				<button class="button button-primary" style="margin-bottom:10px;">Save</button>
 			</form>
-	</div>
+			<table id="customers">
+			  <tr>
+				<th>Sr. No</th>
+				<th>Page Name</th>
+				<th>Page Url</th>
+				<th>Redirection Url</th>
+			  </tr>
+			  <tr>
+				<td>1</td>
+				<td>Home</td>
+				<td>https://www.example.com</td>
+				<td>https://www.google.com/jhsjhsagjhsa/asjkhakhs</td>
+			  </tr>
+			</table>
 
-	<div id="redirectPabeTable" class="tabcontent">
-	  <p>Coming soon...</p>
+		<div class="pagination">
+		  <a href="#">&laquo;</a>
+		  <a href="#">1</a>
+		  <a class="active" href="#">2</a>
+		  <a href="#">3</a>
+		  <a href="#">4</a>
+		  <a href="#">5</a>
+		  <a href="#">6</a>
+		  <a href="#">&raquo;</a>
+		</div>
 	</div>
-	
 </div>

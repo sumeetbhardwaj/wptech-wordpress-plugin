@@ -36,14 +36,19 @@ defined('ABSPATH') or die("Hey, You con't access  this file, you silly human!");
 // define constant plugin url & path 
 define('WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL', plugin_dir_url( __FILE__ ));
 define('WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_PATH', plugin_dir_path( __FILE__ ));
-
+$plugin = plugin_basename( __FILE__ );
 class WptechPageRedirectonHitCounter
 {	
+	function wptech_plugin_add_settings_link( $links ) {
+		$settings_link = '<a href="admin.php?page=wptech-page-redirection-hit-counter-setting-page">' . __( 'Settings' ) . '</a>';
+		array_push( $links, $settings_link );
+		return $links;
+	}
 	public function wptech_enqueue_admin_script()
 	{
 		wp_enqueue_style( 'wptech_custom_tabs_style', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/css/wptech_custom_tabs_style.css' );
 		wp_enqueue_script( 'wptech_custom_tabs_script', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/js/wptech_custom_tabs_script.js' );
-		wp_enqueue_script( 'wptech_custom_admin_tabs_script.js', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/js/wptech_custom_admin_tabs_script.js' );
+		wp_enqueue_script( 'wptech_custom_tabs_script', WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_URL . 'src/js/wptech_custom_admin_tabs_script.js' );
 	
 	}
 	public function wptech_admin_settings()
@@ -72,3 +77,4 @@ if( class_exists( 'WptechPageRedirectonHitCounter' ))
 
 }
 
+add_filter( "plugin_action_links_$plugin", array( $wptechpageredirectonhitcounter,'wptech_plugin_add_settings_link') );
