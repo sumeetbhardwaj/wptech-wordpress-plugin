@@ -1,7 +1,7 @@
 <div id="tab-2" class="tab-pane">
 	<div class="container">
 		<h1 style="margin-bottom:20px;">Redirection Manager</h1>
-	  <form method="post" action="options.php">
+	  <form method="post" action="">
 				<div class="tab-1-main" style="margin-bottom:0;">
 					<div class="inner-main-1" style="width:40%;">
 						<div class="row">
