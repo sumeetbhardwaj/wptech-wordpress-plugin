@@ -1,6 +1,6 @@
 <div id="tab-1" class="tab-pane active">
 	<div class="container">
-		<h1 style="margin-bottom:20px;">Seeting Manager</h1>
+		<h1 style="margin-bottom:20px;">All Seeting Manager</h1>
 		<form method="post" action="options.php">
 			<?php 
 				settings_fields( 'wptech_page_plugin_settings_group' );
@@ -42,5 +42,48 @@
 				submit_button();
 				?>
 			</form>
+			<h1 style="margin-bottom:20px;">Page Redirection Manager</h1>
+			<form method="post" action="">
+				<div class="tab-1-main" style="margin-bottom:0;">
+					<div class="inner-main-1" style="width:40%;">
+						<div class="row">
+						  <div class="inner-main-1" >
+							Redirection Url From :
+						 </div>
+						  <div class="col-75">
+							<input type="text" id="fname" name="page_url_from" placeholder="https//www.example.com">
+						  </div>
+						</div>
+					</div>
+					<div class="inner-main-2" style="width:40%;">
+						<div class="row">
+						  <div class="inner-main-1">
+							Redirection Url To :
+							</div>
+						  <div class="col-75">
+							<input type="text" id="lname" name="red_page_url" value="" placeholder="https//www.abc.com">
+						  </div>
+						</div>
+					</div>
+				</div>
+				<button type="submit" class="button button-primary" name="url_submit" style="margin-bottom:10px;">Save</button>
+			</form>
+			<?php
+			global $wpdb;
+				if(isset($_POST['url_submit'])){
+					$page_url_from = sanitize_text_field( trim($_POST['page_url_from'], " "));
+					$red_page_url = sanitize_text_field( trim( $_POST['red_page_url'], " " ));
+					$page_url_arr = explode("/",trim($page_url_from,'/'));
+					$page_url_name = end($page_url_arr);
+					$postArray = $wpdb->get_results('SELECT * FROM `wp_posts` WHERE post_name = "'.$page_url_name.'"' );
+					$postValues = json_decode(json_encode($postArray), true);
+					if(!empty($postValues[0]['ID']) ){
+						update_post_meta( $postValues[0]['ID'], 'wptech_page_redirection_url', $red_page_url );
+					}
+				} ?>
+
+
+
+
 		</div>
 </div>

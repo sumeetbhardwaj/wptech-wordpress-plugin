@@ -40,7 +40,7 @@
 		<div class="row">
 			<div class="fields">
 				<span style="color:red">Note :- Please Url don,t use without http:// or https:// </span>
-				<input type="text" name="wptech_page_redirection_url" id="wptech_page_redirection_url" style="margin-top:10px" size="100" value="<?php echo get_post_meta($post->ID, 'wptech_page_redirection_url', true)?> "/>
+				<input type="text" name="wptech_page_redirection_url" id="wptech_page_redirection_url" style="margin-top:10px" size="100" value="<?php echo esc_attr( get_post_meta($post->ID, 'wptech_page_redirection_url', true) )?> "/>
 			</div>
 		</div>
 		<?php
