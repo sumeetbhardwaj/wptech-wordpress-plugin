@@ -58,11 +58,13 @@ class WptechPageRedirectonHitCounter
 	
 	 public function wptech_current_page_redirection(){
 		global $post;
+		if( !empty( esc_attr( get_option('wptech_redirection_option_on_off') ) ) ):
 		$meta = get_post_meta( get_the_id() );
 		if(!empty($meta['wptech_page_redirection_url'][0])){
 			 wp_redirect( esc_html( $meta['wptech_page_redirection_url'][0] ) );
 			exit();
 		}
+		endif;
 	} 
 }
 if( class_exists( 'WptechPageRedirectonHitCounter' ))
@@ -76,5 +78,9 @@ if( class_exists( 'WptechPageRedirectonHitCounter' ))
 	add_action( 'template_redirect', array( $wptechpageredirectonhitcounter, 'wptech_current_page_redirection' ));
 	add_filter( "plugin_action_links_$plugin", array( $wptechpageredirectonhitcounter,'wptech_plugin_add_settings_link') );
 }
+
+
+
+
 
 

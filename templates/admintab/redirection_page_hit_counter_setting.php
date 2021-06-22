@@ -11,7 +11,7 @@
 					</div>
 					<div class="inner-main-2">
 						<label class="switch">
-						  <input type="checkbox">
+						  <input type="checkbox" name="wptech_redirection_option_on_off" value="1" <?php echo ( esc_attr( get_option('wptech_redirection_option_on_off') ) )? "checked": "";?>>
 						  <span class="slider round"></span>
 						</label>  
 					</div>
@@ -22,7 +22,7 @@
 					</div>
 					<div class="inner-main-2">
 						<label class="switch">
-						  <input type="checkbox">
+						  <input type="checkbox" name="wptech_redirection_option_show_all" value="1"<?php echo (esc_attr( get_option('wptech_redirection_option_show_all') ) )? "checked" : ""; ?>>
 						  <span class="slider round"></span>
 						</label>
 					</div>
@@ -33,7 +33,7 @@
 					</div>
 					<div class="inner-main-2">
 						<label class="switch">
-						  <input type="checkbox">
+						  <input type="checkbox" name="wptech_hit_counter_option_on_off" value="1" <?php echo (esc_attr( get_option('wptech_hit_counter_option_on_off') ) )? "checked" : ""; ?> >
 						  <span class="slider round"></span>
 						</label>
 					</div>

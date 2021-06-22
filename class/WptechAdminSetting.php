@@ -14,10 +14,11 @@
 	
 	}
 	public function wptech_page_redirection_and_hit_counter_option_setting()
-	{
-		register_setting( 'wptech_page_plugin_settings_group', // page or option group
-						'wptech_page_plugin_settings_option' // ption name 
-						);
+	{	
+		$this->settings = ['wptech_redirection_option_on_off', 'wptech_redirection_option_show_all', 'wptech_hit_counter_option_on_off' ];
+		foreach ( $this->settings as $setting ) {
+			register_setting( 'wptech_page_plugin_settings_group', $setting );
+		}		
 	}
 	public function wptech_page_redirection_and_hit_counter_setting()
 	{ 
@@ -27,9 +28,11 @@
 	// matabox for page redirection url
 	function wptech_redirecttion_page_custom_field_add() {
 		$screens = array( 'page', 'post' );
+		if( !empty( esc_attr( get_option('wptech_redirection_option_show_all') ) ) ):
 		foreach ( $screens as $screen ) {
 		   add_meta_box('Wptech_page_url_Redirection', 'For Page Redirection Url ', array( $this, 'wptech_page_redirection_custom_field' ), $screen, 'normal', 'high');
 		}
+		endif;
 	}
 	function wptech_page_redirection_custom_field(){
 	    global $post;
@@ -59,8 +62,3 @@ add_action( 'admin_init', array( $adminSetting, 'wptech_page_redirection_and_hit
 
 
 
-
-
-
-
-?>
