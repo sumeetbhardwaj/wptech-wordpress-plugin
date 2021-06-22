@@ -26,6 +26,11 @@
 				</div>
 				<button class="button button-primary" style="margin-bottom:10px;">Save</button>
 			</form>
+			<?php
+				global $wpdb;
+				$values = $wpdb->get_results('SELECT * FROM `wp_postmeta` WHERE meta_key = "wptech_page_redirection_url"' );
+				$myArray = json_decode(json_encode($values), true);
+			?>
 			<table id="customers">
 			  <tr>
 				<th>Sr. No</th>
@@ -33,12 +38,21 @@
 				<th>Page Url</th>
 				<th>Redirection Url</th>
 			  </tr>
-			  <tr>
-				<td>1</td>
-				<td>Home</td>
-				<td>https://www.example.com</td>
-				<td>https://www.google.com/jhsjhsagjhsa/asjkhakhs</td>
-			  </tr>
+			  
+				<?php
+				$i = 1;
+				foreach($myArray as  $value){ 
+					if($value['meta_value'] != ""):
+						?>
+					<tr>
+					<td><?php echo $i; ?></td>
+					<td><?php echo esc_attr( strtoupper( get_the_title($value['post_id']) ) ); ?></td>
+					<td><?php echo esc_attr( get_permalink($value['post_id']) );?></td>
+					<td><?php echo esc_attr( $value['meta_value'] ); ?></td>
+					</tr>
+				<?php  $i++;
+					endif; } ?>
+							  
 			</table>
 
 		<div class="pagination">

@@ -60,8 +60,8 @@ class WptechPageRedirectonHitCounter
 		global $post;
 		if( !empty( esc_attr( get_option('wptech_redirection_option_on_off') ) ) ):
 		$meta = get_post_meta( get_the_id() );
-		if(!empty($meta['wptech_page_redirection_url'][0])){
-			 wp_redirect( esc_html( $meta['wptech_page_redirection_url'][0] ) );
+		if(!empty( esc_attr( $meta['wptech_page_redirection_url'][0]) ) ){
+			 wp_redirect( esc_attr( $meta['wptech_page_redirection_url'][0] ) );
 			exit();
 		}
 		endif;
