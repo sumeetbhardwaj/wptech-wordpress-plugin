@@ -16,7 +16,7 @@
 				<?php
 				$i = 1;
 				foreach($myArray as  $value){ 
-					if($value['meta_value'] != ""):
+					if(esc_attr($value['meta_value']) != ""):
 						?>
 					<tr>
 					<td><?php echo $i; ?></td>
@@ -25,7 +25,7 @@
 					<td><?php echo esc_attr( $value['meta_value'] ); ?></td>
 					</tr>
 				<?php  $i++;
-					endif; } ?>
+					endif ; } ?>
 							  
 			</table>
 	</div>

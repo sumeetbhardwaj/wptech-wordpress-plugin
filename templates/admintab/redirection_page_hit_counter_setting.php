@@ -7,7 +7,7 @@
 				do_settings_sections( 'wptech_page_plugin_settings_group' ); ?>
 				<div class="tab-1-main">
 					<div class="inner-main-1" >
-						All Redirection Page On/Off :
+						All Redirection Page On :
 					</div>
 					<div class="inner-main-2">
 						<label class="switch">
@@ -18,7 +18,7 @@
 				</div>
 				<div class="tab-1-main">
 					<div class="inner-main-1">
-					Show Url Input Field In Every Page :
+					Show Input Field In Every Page :
 					</div>
 					<div class="inner-main-2">
 						<label class="switch">
@@ -29,7 +29,7 @@
 				</div>
 				<div class="tab-1-main">
 					<div class="inner-main-1">
-					Hit Counter On/Off :
+					Hit Counter On :
 					</div>
 					<div class="inner-main-2">
 						<label class="switch">
@@ -66,7 +66,7 @@
 						</div>
 					</div>
 				</div>
-				<button type="submit" class="button button-primary" name="url_submit" style="margin-bottom:10px;">Save</button>
+				<button type="submit" class="button button-primary" name="url_submit" style="margin-bottom:10px; padding:0 20px"> Save </button>
 			</form>
 			<?php
 			global $wpdb;

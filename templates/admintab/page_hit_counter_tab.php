@@ -1,32 +1,46 @@
 <div id="tab-3" class="tab-pane">
 	<div class="container">
 		<h1 style="margin-bottom:20px;">Hit Counter Manager</h1>
-			<table id="customers">
+		<table id="customers">
 			  <tr>
 				<th>Sr. No</th>
+				<th>Page ID</th>
 				<th>Page Name</th>
-				<th>Page Url</th>
-				<th>Hits</th>
-				<th>Date</th>
+				<th>Visits</th>
+				<th>Visit Date</th>
+				<th>IP Address</th>
 			  </tr>
-			  <tr>
-				<td>1</td>
-				<td>Home</td>
-				<td>https://www.example.com</td>
-				<td>200</td>
-				<td>13/06/2021</td>
-			  </tr>
+		<?php
+		global $wpdb;
+		$limit = 5;
+		if(isset($_GET['page_no'])){
+		  $page = $_GET['page_no'];
+		}else{
+		  $page = 1;
+		}
+		$offset = ($page - 1) * $limit;
+		 $table_name = $wpdb->prefix .'wptech_visitor_counter';
+		 if(isset($_POST['show_date'])){
+			 $date_from = $_POST['date_from'];
+			 $date_to = $_POST['date_to'];
+			 $get_page_visitor_data_show = $wpdb->get_results("SELECT * FROM $table_name WHERE visitor_time BETWEEN '{$date_from}' AND '{$date_to}' ORDER BY visitor_time DESC ");
+			}else{
+			 $get_page_visitor_data_show = $wpdb->get_results("SELECT * FROM $table_name ORDER BY visitor DESC LIMIT {$offset},{$limit}" );
+		}
+		foreach($get_page_visitor_data_show as $page_visitor_data ){
+		?>
+		<tr>
+			<td><?php echo $offset + 1 ;?></td>
+			<td><?php echo $page_visitor_data->page_id ;?></td>
+			<td>
+			<a href="<?php echo get_permalink( $page_visitor_data->page_id ) ?>">
+			<?php echo strtoupper( get_the_title( $page_visitor_data->page_id  ) ) ;?></a>
+			</td>
+			<td><?php echo $page_visitor_data->visitor ;?></td>
+			<td><?php echo $page_visitor_data->visitor_time ;?></td>
+			<td><?php echo $page_visitor_data->ip_address;?></td>
+		  </tr>
+		  <?php $offset ++; } ?>
 			</table>
-
-		<div class="pagination">
-		  <a href="#">&laquo;</a>
-		  <a href="#">1</a>
-		  <a class="active" href="#">2</a>
-		  <a href="#">3</a>
-		  <a href="#">4</a>
-		  <a href="#">5</a>
-		  <a href="#">6</a>
-		  <a href="#">&raquo;</a>
-		</div>
 	</div>
 </div>

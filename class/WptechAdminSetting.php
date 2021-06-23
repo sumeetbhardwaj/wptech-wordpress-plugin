@@ -5,12 +5,9 @@
  
  class WptechAdminSetting
  {	
-	public function __constructor()
-	{
-		
-	}
+	//admin menu action hook
 	function wptech_page_redirection_and_hit_counter_admin_menu() {
-    add_menu_page( 'Redirection Hit Counter Setting', 'Redirection Hit Counter Setting', 'manage_options','wptech-page-redirection-hit-counter-setting-page', array( $this, 'wptech_page_redirection_and_hit_counter_setting'), 'dashicons-share', 40 );
+    add_menu_page( 'Page Redirection & Hit Counter Setting', 'Page Redirection & Hit Counter Setting', 'manage_options','wptech-page-redirection-hit-counter-setting-page', array( $this, 'wptech_page_redirection_and_hit_counter_setting'), 'dashicons-share', 40 );
 	
 	}
 	public function wptech_page_redirection_and_hit_counter_option_setting()
@@ -20,6 +17,7 @@
 			register_setting( 'wptech_page_plugin_settings_group', $setting );
 		}		
 	}
+	//admin menu callback function page path
 	public function wptech_page_redirection_and_hit_counter_setting()
 	{ 
 		require_once WPTECH_PAGE_REDIRECTION_HIT_COUNTER_PLUGIN_PATH.'/templates/admin.php';
@@ -34,6 +32,7 @@
 		}
 		endif;
 	}
+	//metabox input field
 	function wptech_page_redirection_custom_field(){
 	    global $post;
 		?>
@@ -45,6 +44,7 @@
 		</div>
 		<?php
 	}	
+	//save metabox input field data
 	function wptech_redirection_page_custom_field_data_save(){
 		global $post;
 		if(!empty($post->ID)){
