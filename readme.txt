@@ -12,6 +12,7 @@ Page Redirection, Post Redirection, Other Page Url Redirection
 == Description ==
 
 Page Redirection, Pages, Post and Custom Posts easily redirect to other url. (draft, private, public, pending).
+Page Visitor, Hit Counter, Page Visiter Counter, Page Visits Counts and Page Redirection and Hit counter
 
 
 == Installation ==
