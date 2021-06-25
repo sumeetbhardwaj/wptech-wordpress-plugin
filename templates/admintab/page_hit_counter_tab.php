@@ -14,15 +14,15 @@
 		global $wpdb;
 		$limit = 5;
 		if(isset( $_GET['page_no'] )){
-		  $page = esc_attr( $_GET['page_no'] );
+		  $page = sanitize_text_field( $_GET['page_no'] );
 		}else{
 		  $page = 1;
 		}
 		$offset = ($page - 1) * $limit;
 		 $table_name = $wpdb->prefix .'wptech_visitor_counter';
 		 if(isset( $_POST['show_date'] )){
-			 $date_from = esc_attr( $_POST['date_from'] );
-			 $date_to = esc_attr( $_POST['date_to'] );
+			 $date_from = sanitize_text_field( $_POST['date_from'] );
+			 $date_to = sanitize_text_field( $_POST['date_to'] );
 			 $get_page_visitor_data_show = $wpdb->get_results("SELECT * FROM $table_name WHERE visitor_time BETWEEN '{$date_from}' AND '{$date_to}' ORDER BY visitor_time DESC ");
 			}else{
 			 $get_page_visitor_data_show = $wpdb->get_results("SELECT * FROM $table_name ORDER BY visitor DESC LIMIT {$offset},{$limit}" );
@@ -30,7 +30,7 @@
 		foreach($get_page_visitor_data_show as $page_visitor_data ){
 		?>
 		<tr>
-			<td><?php echo $offset + 1 ;?></td>
+			<td><?php echo esc_attr( $offset + 1 ) ;?></td>
 			<td><?php echo esc_attr( $page_visitor_data->page_id ) ;?></td>
 			<td>
 			<a href="<?php echo get_permalink( $page_visitor_data->page_id ) ?>">

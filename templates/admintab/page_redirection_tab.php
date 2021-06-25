@@ -19,7 +19,7 @@
 					if(esc_attr($value['meta_value']) != ""):
 						?>
 					<tr>
-					<td><?php echo $i; ?></td>
+					<td><?php echo esc_attr( $i ); ?></td>
 					<td><?php echo esc_attr( strtoupper( get_the_title($value['post_id']) ) ); ?></td>
 					<td><?php echo esc_attr( get_permalink($value['post_id']) );?></td>
 					<td><?php echo esc_attr( $value['meta_value'] ); ?></td>
