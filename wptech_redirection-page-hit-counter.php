@@ -3,11 +3,11 @@
  * @package WpTechPageRedirection
  **
 Plugin Name: WpTech Page Redirection & Hit Counter 
-Plugin URI: https://wptech.online/
+Plugin URI: https://wordpress.org/plugins/wptech_redirection-page-hit-counter/
 Description: This plugin is use for page redirection and page hit counter.
 Version: 1.0
 Author: Sumeet Bhardwaj
-Author URI: https://wptech.online/sumeetbhardwaj
+Author URI: https://profiles.wordpress.org/sumeetbhardwaj/
 License: GPLv2 or later
 Text Domain: prhc
 */
