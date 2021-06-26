@@ -71,8 +71,8 @@
 			<?php
 			global $wpdb;
 				if(isset($_POST['url_submit'])){
-					$page_url_from = sanitize_text_field( trim($_POST['page_url_from'], " "));
-					$red_page_url = sanitize_text_field( trim( $_POST['red_page_url'], " " ));
+					$page_url_from = esc_url( trim($_POST['page_url_from'], " "));
+					$red_page_url = esc_url( trim( $_POST['red_page_url'], " " ));
 					$page_url_arr = explode("/",trim($page_url_from,'/'));
 					$page_url_name = end($page_url_arr);
 					$postArray = $wpdb->get_results('SELECT * FROM `wp_posts` WHERE post_name = "'.$page_url_name.'"' );
@@ -81,9 +81,5 @@
 						update_post_meta( $postValues[0]['ID'], 'wptech_page_redirection_url', $red_page_url );
 					}
 				} ?>
-
-
-
-
 		</div>
 </div>
