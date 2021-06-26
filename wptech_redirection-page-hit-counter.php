@@ -79,22 +79,23 @@ class WptechPageRedirectonHitCounter
 	 public function wptech_current_page_redirection_and_hit_counter(){
 		global $wpdb;	
 		$post_id = get_the_id();
-		
+		$ip_address = $_SERVER['REMOTE_ADDR'];
+		$table_name = $wpdb->prefix .'wptech_visitor_counter';
+		$get_page_hit_counter = $wpdb->get_results( "SELECT * FROM $table_name WHERE  page_id = '" . $post_id . "' AND ip_address = '" . $ip_address ."'" );
 		if(!empty($post_id)){
-			$ip_address = $_SERVER['REMOTE_ADDR'];
-			$table_name = $wpdb->prefix .'wptech_visitor_counter';
-			$get_page_hit_counter = $wpdb->get_results( "SELECT * FROM $table_name WHERE  page_id = '" . $post_id . "' AND ip_address = '" . $ip_address ."'" );
-			if( $get_page_hit_counter[0]->page_id == $post_id AND $get_page_hit_counter[0]->ip_address == $ip_address )
-			{
-			$wpdb->update(  $table_name,
-							array(
-								"visitor" => $get_page_hit_counter[0]->visitor + 1,
-								"visitor_time" => date("d/m/Y", time()),
-								),
+			if(!empty($get_page_hit_counter[0]->page_id ) || !empty($get_page_hit_counter[0]->ip_address )){
+				if( $get_page_hit_counter[0]->page_id == $post_id AND $get_page_hit_counter[0]->ip_address == $ip_address )
+				{
+				$wpdb->update(  $table_name,
 								array(
-								"page_id" => $post_id, "ip_address" => $ip_address,
-								)
-							);
+									"visitor" => $get_page_hit_counter[0]->visitor + 1,
+									"visitor_time" => date("d/m/Y", time()),
+									),
+									array(
+									"page_id" => $post_id, "ip_address" => $ip_address,
+									)
+								);
+				}
 			}else{
 				$wpdb->insert(
 							$table_name,
